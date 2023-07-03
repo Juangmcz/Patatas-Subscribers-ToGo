@@ -1,9 +1,3 @@
-@use "sass:map";
-@use "@angular/material" as mat;
-
-$indigo-color: mat.$indigo-palette;
-$pink-color: mat.$pink-palette;
-
 .flexCont {
   display: flex;
   flex-direction: column;
