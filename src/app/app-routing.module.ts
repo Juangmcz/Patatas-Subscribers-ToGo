@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { ManageUsersPageComponent } from './pages/manage-users-page/manage-users-page.component';
+import { CreateSubscriberPageComponent } from './pages/create-subscriber-page/create-subscriber-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -11,8 +12,12 @@ const routes: Routes = [
     component: LoginPageComponent,
   },
   {
-    path: 'manage-users',
+    path: 'manage-subscribers',
     component: ManageUsersPageComponent,
+  },
+  {
+    path: 'create-subscriber',
+    component: CreateSubscriberPageComponent,
   },
   {
     path: '**',
