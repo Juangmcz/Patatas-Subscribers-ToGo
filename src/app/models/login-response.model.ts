@@ -2,7 +2,7 @@ import { Feature } from './feature.model';
 import { Permission } from './permission.model';
 import { Preference } from './preference.model';
 
-export interface Response {
+export interface LoginResponse {
   status: number;
   token: string;
   message: any;
