@@ -36,7 +36,7 @@ export class LoginPageComponent {
       let loginResponse: LoginResponse = data;
 
       if (loginResponse.Status === 1) {
-        localStorage.setItem('token', loginResponse.Token);
+        localStorage.setItem('Token', loginResponse.Token);
         this.router.navigate(['manage-subscribers']);
       }
     });
