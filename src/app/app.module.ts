@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    SidenavbarComponent
   ],
   imports: [
     BrowserModule,
