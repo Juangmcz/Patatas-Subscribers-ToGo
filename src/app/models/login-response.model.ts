@@ -3,21 +3,21 @@ import { Permission } from './permission.model';
 import { Preference } from './preference.model';
 
 export interface LoginResponse {
-  status: number;
-  token: string;
-  message: any;
-  twoFactorType: any;
-  allowedTwoFactorTypes: any;
-  permissions: Permission[];
-  features: Feature[];
-  locations: any[];
-  lastLocationId: number;
-  preferences: Preference[];
-  userType: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  timeZoneInfo: any;
-  refreshToken: string;
+  Status: number
+  Token: string
+  Message: any
+  TwoFactorType: any
+  AllowedTwoFactorTypes: any
+  Permissions: Permission[]
+  Features: Feature[]
+  Locations: any[]
+  LastLocationId: number
+  Preferences: Preference[]
+  UserType: string
+  Email: string
+  FirstName: string
+  LastName: string
+  CompanyName: string
+  TimeZoneInfo: any
+  RefreshToken: string
 }

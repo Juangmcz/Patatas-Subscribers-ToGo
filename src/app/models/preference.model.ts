@@ -1,4 +1,4 @@
 export interface Preference {
-  preferenceKey: string;
-  preferenceValue: string;
+  PreferenceKey: string;
+  PreferenceValue: string;
 }
