@@ -2,12 +2,17 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { ManageUsersPageComponent } from './pages/manage-users-page/manage-users-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login-page', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
-    path: 'login-page',
+    path: 'login',
     component: LoginPageComponent,
+  },
+  {
+    path: 'manage-users',
+    component: ManageUsersPageComponent,
   },
   {
     path: '**',
