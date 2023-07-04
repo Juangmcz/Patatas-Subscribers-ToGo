@@ -18,8 +18,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
-import { ManageUsersPageComponent } from './pages/manage-users-page/manage-users-page.component';
 import { CreateSubscriberPageComponent } from './pages/create-subscriber-page/create-subscriber-page.component';
+import { SubscriberCardComponent } from './components/subscriber-card/subscriber-card.component';
+import { ManageSubscribersComponent } from './pages/manage-subscribers/manage-subscribers.component';
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -27,8 +29,9 @@ import { CreateSubscriberPageComponent } from './pages/create-subscriber-page/cr
     LoginPageComponent,
     SidenavbarComponent,
     NotFoundPageComponent,
-    ManageUsersPageComponent,
     CreateSubscriberPageComponent,
+    SubscriberCardComponent,
+    ManageSubscribersComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ import { CreateSubscriberPageComponent } from './pages/create-subscriber-page/cr
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
