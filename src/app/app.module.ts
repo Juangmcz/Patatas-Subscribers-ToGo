@@ -16,12 +16,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { CreateSubscriberPageComponent } from './pages/create-subscriber-page/create-subscriber-page.component';
 import { SubscriberCardComponent } from './components/subscriber-card/subscriber-card.component';
 import { ManageSubscribersComponent } from './pages/manage-subscribers/manage-subscribers.component';
-import {CookieService} from 'ngx-cookie-service';
+import { CookieService } from 'ngx-cookie-service';
+import { JwtInterceptor } from './commons/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,10 @@ import {CookieService} from 'ngx-cookie-service';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [CookieService],
+  providers: [
+    CookieService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
