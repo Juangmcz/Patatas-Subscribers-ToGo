@@ -23,6 +23,7 @@ import { SubscriberCardComponent } from './components/subscriber-card/subscriber
 import { ManageSubscribersComponent } from './pages/manage-subscribers/manage-subscribers.component';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptor } from './commons/jwt.interceptor';
+import { EditSubscriberComponent } from './pages/edit-subscriber/edit-subscriber.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { JwtInterceptor } from './commons/jwt.interceptor';
     CreateSubscriberPageComponent,
     SubscriberCardComponent,
     ManageSubscribersComponent,
+    EditSubscriberComponent,
   ],
   imports: [
     BrowserModule,

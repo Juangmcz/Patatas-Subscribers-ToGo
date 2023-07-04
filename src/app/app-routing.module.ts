@@ -5,6 +5,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { CreateSubscriberPageComponent } from './pages/create-subscriber-page/create-subscriber-page.component';
 import { ManageSubscribersComponent } from './pages/manage-subscribers/manage-subscribers.component';
 import { manageSubscribersGuard } from './commons/manage-subscribers.guard';
+import { EditSubscriberComponent } from './pages/edit-subscriber/edit-subscriber.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,6 +21,11 @@ const routes: Routes = [
   {
     path: 'create-subscriber',
     component: CreateSubscriberPageComponent,
+    canActivate: [manageSubscribersGuard],
+  },
+  {
+    path: 'edit-subscriber',
+    component: EditSubscriberComponent,
     canActivate: [manageSubscribersGuard],
   },
   {
