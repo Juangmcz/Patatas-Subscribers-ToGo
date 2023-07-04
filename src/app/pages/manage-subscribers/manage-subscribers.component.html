@@ -1,1 +1,6 @@
-<p>manage-subscribers works!</p>
+<div ngClass="subscriber-card-container">
+  <app-subscriber-card
+    *ngFor="let subscriber of subscribers"
+    [subscriberInfo]="subscriber"
+  ></app-subscriber-card>
+</div>
