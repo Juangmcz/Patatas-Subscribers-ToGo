@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-sidenavbar',
@@ -7,11 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidenavbar.component.scss'],
 })
 export class SidenavbarComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cookieService: CookieService) {}
 
   onLogout(): void {
-    console.log(localStorage.getItem('Token'));
     this.router.navigate(['login']);
-    localStorage.removeItem('Token');
+    this.cookieService.delete('Token');
   }
 }
