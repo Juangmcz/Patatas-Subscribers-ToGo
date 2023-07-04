@@ -1,0 +1,24 @@
+mat-card {
+
+  border-radius: 10px;
+  width: 300px;
+  height: 280px;
+  font-weight: bolder;
+  background-color: #f7f1e5;
+}
+
+mat-card-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+}
+
+mat-card-title{
+  font-size: 23px;
+}
