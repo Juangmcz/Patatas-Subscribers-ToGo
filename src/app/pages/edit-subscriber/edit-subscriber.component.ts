@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { SubscriberService } from 'src/app/services/subscriber.service';
 import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-subscriber',
@@ -71,12 +72,22 @@ export class EditSubscriberComponent implements OnInit {
       .subscribe((answer) => console.log(answer));
 
     this.router.navigate(['manage-subscribers']);
-    alert('This subscriber was updated');
+    Swal.fire('Updated!', 'This subscriber has been updated.', 'success');
   }
 
   onBack() {
-    if (confirm('Are you sure you want to exit this menu?')) {
-      this.router.navigate(['manage-subscribers']);
-    }
+    Swal.fire({
+      title: 'Are you sure you want to exit this menu?',
+      text: 'You will lose all the progress!!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['manage-subscribers']);
+      }
+    });
   }
 }

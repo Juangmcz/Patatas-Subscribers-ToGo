@@ -1,8 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
 import { SubscriberService } from 'src/app/services/subscriber.service';
+import { windowWhen } from 'rxjs';
 
 @Component({
   selector: 'app-subscriber-card',
@@ -51,15 +53,25 @@ export class SubscriberCardComponent {
   }
 
   deleteSubscriber() {
-    if (confirm('Are you sure you want to remove this subscriber?')) {
-      this.subscriberService
-        .deleteSubscriber(this.subscriberInfo.Id)
-        .subscribe({
-          error: console.log,
-          complete: console.log,
-        });
-      alert('This subscriber was deleted');
-      window.location.reload();
-    }
+    Swal.fire({
+      title: 'Are you sure you want to remove this subscriber?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.subscriberService
+          .deleteSubscriber(this.subscriberInfo.Id)
+          .subscribe({
+            error: console.log,
+            complete: console.log,
+          });
+        window.location.reload();
+        Swal.fire('Deleted!', 'This subscriber has been deleted.', 'success');
+      }
+    });
   }
 }
