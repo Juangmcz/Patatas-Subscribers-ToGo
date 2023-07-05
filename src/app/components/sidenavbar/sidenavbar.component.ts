@@ -14,4 +14,9 @@ export class SidenavbarComponent {
     this.router.navigate(['login']);
     this.cookieService.delete('Token');
   }
+
+  isThereAToken(): boolean {
+    const token: boolean = this.cookieService.check('Token');
+    return token;
+  }
 }
