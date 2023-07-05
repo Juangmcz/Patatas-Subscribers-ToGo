@@ -39,13 +39,14 @@ export class CreateSubscriberPageComponent implements OnInit {
     this.subscriberService
       .createSubscriber(this.data)
       .subscribe((answer) => console.log(answer));
-    Swal.fire('Updated!', 'This subscriber has been updated.', 'success');
+    this.form.reset()
+    Swal.fire('Created!', 'This subscriber has been created.', 'success');
   }
 
   onBack() {
     Swal.fire({
       title: 'Are you sure you want to exit this menu?',
-      text: "You will lose all the progress!",
+      text: 'You will lose all the progress!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
