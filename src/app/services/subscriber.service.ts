@@ -19,12 +19,12 @@ export class SubscriberService {
     return this.http.get(`${this.api}/${id}`);
   }
 
-  createSubscriber(subscriber: SubscriberInfo) {
+  createSubscriber(subscriber: any) {
     return this.http.post(this.api, subscriber);
   }
 
   updateSubscriber(subscriber: SubscriberInfo): Observable<any> {
-    return this.http.put(this.api, subscriber);
+    return this.http.put(`${this.api}/${subscriber.Id}`, subscriber);
   }
 
   deleteSubscriber(id: number) {
