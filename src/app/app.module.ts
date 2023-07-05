@@ -24,6 +24,7 @@ import { ManageSubscribersComponent } from './pages/manage-subscribers/manage-su
 import { CookieService } from 'ngx-cookie-service';
 import { JwtInterceptor } from './commons/jwt.interceptor';
 import { EditSubscriberComponent } from './pages/edit-subscriber/edit-subscriber.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { EditSubscriberComponent } from './pages/edit-subscriber/edit-subscriber
     MatButtonModule,
     HttpClientModule,
     FormsModule,
+    MatSelectModule,
   ],
   providers: [
     CookieService,

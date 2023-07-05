@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { SubscriberInfo } from '../models/subscriber-info.model';
 
 @Injectable({
@@ -11,8 +11,27 @@ export class SubscriberService {
 
   api: string = 'https://lab.app.invertebrado.co/api/subscribers';
 
-  getAllSubscribers(): Observable<any> {
-    return this.http.get(this.api);
+  getAllSubscribers(
+    count: number,
+    page: number,
+    criteria?: string,
+    sortType?: string,
+    sortOrder?: string
+  ): Observable<any> {
+    let params = new HttpParams();
+    if (criteria) {
+      params = params.set('criteria', criteria);
+    }
+    if (sortType) {
+      params = params.set('sortType', sortType);
+    }
+    if (sortOrder) {
+      params = params.set('sortOrder', sortOrder);
+    }
+    console.log(params);
+    return this.http.get(`${this.api}/?count=${count}&page=${page}`, {
+      params,
+    });
   }
 
   getSubscriberById(id: number) {

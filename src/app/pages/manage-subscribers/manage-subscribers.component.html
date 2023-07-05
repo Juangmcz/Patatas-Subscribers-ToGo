@@ -1,6 +1,45 @@
+<form class="options-form" [formGroup]="form">
+  <button mat-raised-button color="primary" (click)="onApply()">Apply</button>
+
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input matInput placeholder="Ex. Juan" formControlName="search" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Sort order</mat-label>
+    <mat-select [(value)]="sortOrder">
+      <mat-option>None</mat-option>
+      <mat-option value="PublicId">Public Id</mat-option>
+      <mat-option value="Area">Area</mat-option>
+      <mat-option value="Name">Name</mat-option>
+      <mat-option value="Email">Email</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Sort type</mat-label>
+    <mat-select [(value)]="sortType">
+      <mat-option>None</mat-option>
+      <mat-option value="0">Ascendent</mat-option>
+      <mat-option value="1">Descendent</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
 <div ngClass="subscriber-card-container">
   <app-subscriber-card
     *ngFor="let subscriber of subscribers"
     [subscriberInfo]="subscriber"
   ></app-subscriber-card>
+</div>
+<div class="buttons-container">
+  <button mat-icon-button (click)="onPreviousPage()">
+    <mat-icon>navigate_before</mat-icon>
+  </button>
+
+  <h2>{{ currentPage }} of {{ totalOfPages }}</h2>
+
+  <button mat-icon-button (click)="onNextPage()">
+    <mat-icon>navigate_next</mat-icon>
+  </button>
 </div>
