@@ -32,7 +32,7 @@ In the following image, you can see the side navigation bar, where you can manag
 
 The following image shows the main space where you can edit and delete all the existing subscribers. Also, you can use the filters that are above the page in order to easily find the subscriber you need.
 
-<img src="resources/manage-susbcribers.png" width="821" alt="Manage susbcribers">
+<img src="resources/manage-subscribers.png" width="821" alt="Manage susbcribers">
 
 <br>
 
