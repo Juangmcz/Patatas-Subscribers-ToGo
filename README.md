@@ -12,25 +12,31 @@ The main purpose of this admin app is to manage all the subscribers of the compa
 
 ## Big Picture
 
-###Login
+##Login
 
 The image below shows the login page, where you can access the app if you have the respective credentials.
 
-<img src="../../../assets/login.png" width="821" alt="Login">
+<img src="../../../assets/mr-potato.jpg" width="821" alt="Login">
 
-###Side Navigation Bar
+<br>
+
+##Side Navigation Bar
 
 In the following image, you can see the side navigation bar, where you can manage all the existing subscribers, create a new subscriber, and finally close the session by clicking on the logout button.
 
 <img src="assets/sidenavbar.png" width="821" alt="Sidenavbar">
 
-###Manage Subscribers Page
+<br>
+
+##Manage Subscribers Page
 
 The following image shows the main space where you can edit and delete all the existing subscribers. Also, you can use the filters that are above the page in order to easily find the subscriber you need.
 
 <img src="assets/manage-susbcribers.png" width="821" alt="Manage susbcribers">
 
-###Manage Subscribers Page
+<br>
+
+##Manage Subscribers Page
 
 You can create a new subscriber using the form shown in the image below. Once you have filled out all the fields correctly, you only have to click the "submit" button, or if you want to exit this page, you only have to click on the "Go Back" button, and you will be redirected to the "manager-subscribers page".
 
@@ -38,7 +44,7 @@ You can create a new subscriber using the form shown in the image below. Once yo
 
 <br>
 
-###Edit Subscribers Page
+##Edit Subscribers Page
 
 If you want to edit an existing subscriber, you only have to click on the "Edit" button located in the user card, and you will be redirected to the following page:
 
