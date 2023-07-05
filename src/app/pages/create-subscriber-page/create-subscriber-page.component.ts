@@ -23,15 +23,7 @@ export class CreateSubscriberPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = this.builder.group({
-      Name: ['', [Validators.required, Validators.minLength(3)]],
-      Email: ['', [Validators.required, Validators.email]],
-      CountryCode: ['', [Validators.required, Validators.minLength(2)]],
-      PhoneNumber: ['', [Validators.required, Validators.minLength(4)]],
-      JobTitle: '',
-      Area: '',
-      Topics: [[]],
-    });
+    this.buildForm();
   }
 
   onSubmit() {
@@ -39,7 +31,7 @@ export class CreateSubscriberPageComponent implements OnInit {
     this.subscriberService
       .createSubscriber(this.data)
       .subscribe((answer) => console.log(answer));
-    this.form.reset()
+    this.form.reset();
     Swal.fire('Created!', 'This subscriber has been created.', 'success');
   }
 
@@ -56,6 +48,36 @@ export class CreateSubscriberPageComponent implements OnInit {
       if (result.isConfirmed) {
         this.router.navigate(['manage-subscribers']);
       }
+    });
+  }
+
+  onAddAnotherSubscriber() {
+    Swal.fire({
+      title: 'Are you sure you want to add another subscriber?',
+      text: 'You cannot undo this action',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, add it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.data['Subscribers'].push(this.form.value);
+        this.form.reset();
+        this.buildForm();
+      }
+    });
+  }
+
+  buildForm() {
+    this.form = this.builder.group({
+      Name: ['', [Validators.required, Validators.minLength(3)]],
+      Email: ['', [Validators.required, Validators.email]],
+      CountryCode: ['', [Validators.required, Validators.minLength(2)]],
+      PhoneNumber: ['', [Validators.required, Validators.minLength(4)]],
+      JobTitle: '',
+      Area: '',
+      Topics: [[]],
     });
   }
 }

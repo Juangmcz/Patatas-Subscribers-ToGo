@@ -100,18 +100,26 @@
         />
       </mat-form-field>
       <div class="create-form-actions">
+        <button mat-raised-button color="warn" (click)="onBack()">
+          Go Back
+        </button>
+
         <button
-          type="button"
+          class="add-subscriber-button"
+          mat-raised-button
+          color="accent"
+          [disabled]="!form.valid"
+          (click)="onAddAnotherSubscriber()"
+        >
+          Add Another Subscriber
+        </button>
+        <button
           mat-raised-button
           color="primary"
           [disabled]="!form.valid"
           (click)="onSubmit()"
         >
           Submit
-        </button>
-
-        <button type="button" mat-raised-button color="warn" (click)="onBack()">
-          Go Back
         </button>
       </div>
     </form>
