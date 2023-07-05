@@ -66,8 +66,6 @@ export class ManageSubscribersComponent implements OnInit {
     this.getAllSubscribers();
   }
 
-  getNumberOfPages() {}
-
   getAllSubscribers() {
     this.service
       .getAllSubscribers(
