@@ -36,7 +36,7 @@ The following image shows the main space where you can edit and delete all the e
 
 <br>
 
-### Manage Subscribers Page
+### Create Subscribers Page
 
 You can create a new subscriber using the form shown in the image below. Once you have filled out all the fields correctly, you only have to click the "submit" button, or if you want to exit this page, you only have to click on the "Go Back" button, and you will be redirected to the "manager-subscribers page".
 
