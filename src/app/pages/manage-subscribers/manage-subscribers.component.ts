@@ -32,7 +32,6 @@ export class ManageSubscribersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllSubscribers();
-    console.log(this.totalOfSubscribers);
     this.form = this.builder.group({
       search: '',
     });

@@ -28,7 +28,6 @@ export class SubscriberService {
     if (sortOrder) {
       params = params.set('sortOrder', sortOrder);
     }
-    console.log(params);
     return this.http.get(`${this.api}/?count=${count}&page=${page}`, {
       params,
     });

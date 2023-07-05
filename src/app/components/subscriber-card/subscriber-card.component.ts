@@ -69,8 +69,8 @@ export class SubscriberCardComponent {
             error: console.log,
             complete: console.log,
           });
-        window.location.reload();
         Swal.fire('Deleted!', 'This subscriber has been deleted.', 'success');
+        window.location.reload();
       }
     });
   }
