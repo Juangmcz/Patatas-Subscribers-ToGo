@@ -1,1 +1,119 @@
-<p>edit-subscriber works!</p>
+<div class="flex-container">
+  <div class="form-container">
+    <form class="create-subscriber-form" [formGroup]="form">
+      <div class="img-container">
+        <img src="../../../assets/mr-potato.jpg" alt="Potato logo" />
+      </div>
+      <h5>Edit subscriber form</h5>
+
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input
+          id="NameInput"
+          matInput
+          placeholder="Name"
+          formControlName="name"
+        />
+        <mat-error *ngIf="form.get('name')?.hasError('required')">
+          Name is required
+        </mat-error>
+        <mat-error *ngIf="form.get('name')!.getError('minlength')">
+          Name must be at least 3 characters long
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          id="EmailInput"
+          matInput
+          placeholder="Email"
+          formControlName="email"
+        />
+        <mat-error *ngIf="form.get('email')?.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="form.get('email')!.getError('email')">
+          Email must be a valid one
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>Country Code</mat-label>
+        <input
+          id="CountryCodeInput"
+          matInput
+          placeholder="CountryCode"
+          formControlName="countryCode"
+        />
+        <mat-error *ngIf="form.get('countryCode')?.hasError('required')">
+          Country Code is required
+        </mat-error>
+        <mat-error *ngIf="form.get('countryCode')!.getError('minlength')">
+          Country Code must at least 2 characters long
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input
+          id="PhoneNumberInput"
+          matInput
+          placeholder="Phone number"
+          formControlName="phoneNumber"
+        />
+        <mat-error *ngIf="form.get('phoneNumber')?.hasError('required')">
+          Phone Number is required
+        </mat-error>
+        <mat-error *ngIf="form.get('phoneNumber')!.getError('minlength')">
+          Email must be a at least 4 characters long
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>Job Title</mat-label>
+        <input
+          id="JobTitleInput"
+          matInput
+          placeholder="Job title"
+          formControlName="jobTitle"
+        />
+      </mat-form-field>
+
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>Area</mat-label>
+        <input
+          id="AreaInput"
+          matInput
+          placeholder="Area"
+          formControlName="area"
+        />
+      </mat-form-field>
+
+      <mat-form-field color="primary" appearance="outline">
+        <mat-label>Topics</mat-label>
+        <input
+          id="TopicsInput"
+          matInput
+          placeholder="Topics"
+          formControlName="topics"
+        />
+      </mat-form-field>
+      <div class="create-form-actions">
+        <button
+          type="button"
+          mat-raised-button
+          color="primary"
+          [disabled]="!form.valid"
+          (click)="onSubmit()"
+        >
+          Submit
+        </button>
+
+        <button type="button" mat-raised-button color="warn" (click)="onBack()">
+          Go Back
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
