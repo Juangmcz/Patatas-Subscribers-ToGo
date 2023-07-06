@@ -39,6 +39,7 @@ export class LoginPageComponent {
 
       if (loginResponse.Status === 1) {
         this.cookieService.set('Token', loginResponse.Token);
+        this.cookieService.set('RefreshToken', loginResponse.RefreshToken);
         this.router.navigate(['manage-subscribers']);
       }
     });
