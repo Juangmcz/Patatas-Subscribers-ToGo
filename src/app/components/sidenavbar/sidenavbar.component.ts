@@ -13,6 +13,7 @@ export class SidenavbarComponent {
   onLogout(): void {
     this.router.navigate(['login']);
     this.cookieService.delete('Token');
+    this.cookieService.delete('RefreshToken');
   }
 
   isThereAToken(): boolean {
