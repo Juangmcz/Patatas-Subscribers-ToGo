@@ -4,7 +4,6 @@ import Swal from 'sweetalert2';
 
 import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
 import { SubscriberService } from 'src/app/services/subscriber.service';
-import { windowWhen } from 'rxjs';
 
 @Component({
   selector: 'app-subscriber-card',
@@ -70,7 +69,6 @@ export class SubscriberCardComponent {
             complete: console.log,
           });
         Swal.fire('Deleted!', 'This subscriber has been deleted.', 'success');
-        window.location.reload();
       }
     });
   }
