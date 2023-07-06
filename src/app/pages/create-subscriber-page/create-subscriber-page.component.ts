@@ -73,7 +73,7 @@ export class CreateSubscriberPageComponent implements OnInit {
     this.form = this.builder.group({
       Name: ['', [Validators.required, Validators.minLength(3)]],
       Email: ['', [Validators.required, Validators.email]],
-      CountryCode: ['', [Validators.required, Validators.minLength(2)]],
+      CountryCode: ['', [Validators.required, Validators.maxLength(2)]],
       PhoneNumber: ['', [Validators.required, Validators.minLength(4)]],
       JobTitle: '',
       Area: '',

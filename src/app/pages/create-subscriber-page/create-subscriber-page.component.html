@@ -49,8 +49,8 @@
         <mat-error *ngIf="form.get('CountryCode')?.hasError('required')">
           Country Code is required
         </mat-error>
-        <mat-error *ngIf="form.get('CountryCode')!.getError('minlength')">
-          Country Code must at least 2 characters long
+        <mat-error *ngIf="form.get('CountryCode')!.getError('maxlength')">
+          Country Code cannot exceed 2 characters long
         </mat-error>
       </mat-form-field>
 
