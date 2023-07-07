@@ -40,17 +40,17 @@
 
       <mat-form-field color="primary" appearance="outline">
         <mat-label>Country Code</mat-label>
-        <input
-          id="CountryCodeInput"
-          matInput
+        <mat-select
+          id="CountryCode"
           placeholder="Country code"
           formControlName="CountryCode"
-        />
+        >
+          <mat-option *ngFor="let country of countries" [value]="country">{{
+            country
+          }}</mat-option>
+        </mat-select>
         <mat-error *ngIf="form.get('CountryCode')?.hasError('required')">
-          Country Code is required
-        </mat-error>
-        <mat-error *ngIf="form.get('CountryCode')!.getError('maxlength')">
-          Country Code cannot exceed 2 characters long
+          Country code is required
         </mat-error>
       </mat-form-field>
 

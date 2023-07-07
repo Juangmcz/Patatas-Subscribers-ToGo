@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CountryService } from 'src/app/services/country.service';
 import { SubscriberService } from 'src/app/services/subscriber.service';
 import Swal from 'sweetalert2';
 
@@ -10,6 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./create-subscriber-page.component.scss'],
 })
 export class CreateSubscriberPageComponent implements OnInit {
+  countries: string[] = [];
   form: FormGroup = new FormGroup({});
 
   data: any = {
@@ -19,10 +21,12 @@ export class CreateSubscriberPageComponent implements OnInit {
   constructor(
     private router: Router,
     private builder: FormBuilder,
+    private countryService: CountryService,
     private subscriberService: SubscriberService
   ) {}
 
   ngOnInit(): void {
+    this.getAllCountries();
     this.buildForm();
   }
 
@@ -73,11 +77,23 @@ export class CreateSubscriberPageComponent implements OnInit {
     this.form = this.builder.group({
       Name: ['', [Validators.required, Validators.minLength(3)]],
       Email: ['', [Validators.required, Validators.email]],
-      CountryCode: ['', [Validators.required, Validators.maxLength(2)]],
+      CountryCode: ['', [Validators.required]],
       PhoneNumber: ['', [Validators.required, Validators.minLength(4)]],
       JobTitle: '',
       Area: '',
       Topics: [[]],
+    });
+  }
+
+  getAllCountries() {
+    this.countryService.getAllCountries(255).subscribe({
+      next: (answer) => {
+        this.countries = answer.Data.map(function (item: any) {
+          return item.Code;
+        });
+      },
+      error: console.log,
+      complete: console.log,
     });
   }
 }
