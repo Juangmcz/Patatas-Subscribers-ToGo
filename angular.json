@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "patatas-subscribers-togo:build:production"
+              "buildTarget": "patatas-subscribers-togo:build:production"
             },
             "development": {
-              "browserTarget": "patatas-subscribers-togo:build:development"
+              "buildTarget": "patatas-subscribers-togo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "patatas-subscribers-togo:build"
+            "buildTarget": "patatas-subscribers-togo:build"
           }
         },
         "test": {
