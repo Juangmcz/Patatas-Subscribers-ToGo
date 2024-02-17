@@ -8,8 +8,8 @@ describe('CreateSubscriberPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CreateSubscriberPageComponent]
-    });
+    imports: [CreateSubscriberPageComponent]
+});
     fixture = TestBed.createComponent(CreateSubscriberPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
