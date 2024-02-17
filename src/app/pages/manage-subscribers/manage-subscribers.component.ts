@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
 import { SubscriberService } from 'src/app/services/subscriber.service';
+import { MatIcon } from '@angular/material/icon';
+import { SubscriberCardComponent } from '../../components/subscriber-card/subscriber-card.component';
+import { NgClass, NgFor } from '@angular/common';
+import { MatOption } from '@angular/material/core';
+import { MatSelect } from '@angular/material/select';
+import { MatInput } from '@angular/material/input';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatButton, MatIconButton } from '@angular/material/button';
 
 interface Food {
   value: string;
@@ -9,9 +17,24 @@ interface Food {
 }
 
 @Component({
-  selector: 'app-manage-subscribers',
-  templateUrl: './manage-subscribers.component.html',
-  styleUrls: ['./manage-subscribers.component.scss'],
+    selector: 'app-manage-subscribers',
+    templateUrl: './manage-subscribers.component.html',
+    styleUrls: ['./manage-subscribers.component.scss'],
+    standalone: true,
+    imports: [
+        ReactiveFormsModule,
+        MatButton,
+        MatFormField,
+        MatLabel,
+        MatInput,
+        MatSelect,
+        MatOption,
+        NgClass,
+        NgFor,
+        SubscriberCardComponent,
+        MatIconButton,
+        MatIcon,
+    ],
 })
 export class ManageSubscribersComponent implements OnInit {
   count: number = 10;
