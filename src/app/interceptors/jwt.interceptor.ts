@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
 import {
+  HttpEvent,
   HttpRequest,
   HttpHandler,
-  HttpEvent,
   HttpInterceptor,
 } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
+import { Injectable } from '@angular/core';
 import { Observable, switchMap } from 'rxjs';
-import { LoginService } from '../services/login.service';
+import { CookieService } from 'ngx-cookie-service';
 import jwt_decode, { JwtPayload } from 'jwt-decode';
+import { LoginService } from '../services/login.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {

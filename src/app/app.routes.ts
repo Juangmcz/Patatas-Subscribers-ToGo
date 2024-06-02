@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { manageSubscribersGuard } from './commons/manage-subscribers.guard';
+import { manageSubscribersGuard } from './ guards/manage-subscribers.guard';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
@@ -30,7 +30,7 @@ export const routes: Routes = [
     canActivate: [manageSubscribersGuard],
     loadComponent: () =>
       import('./pages/edit-subscriber/edit-subscriber.component').then(
-        (m) => m.EditSubscriberComponent
+        (c) => c.EditSubscriberComponent
       ),
   },
   {
