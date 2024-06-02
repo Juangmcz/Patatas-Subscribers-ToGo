@@ -1,28 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { SubscriberService } from 'src/app/services/subscriber.service';
-import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
 import Swal from 'sweetalert2';
-import { MatButton } from '@angular/material/button';
-import { NgIf } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { MatInput } from '@angular/material/input';
+import { MatButton } from '@angular/material/button';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
+import { SubscriberService } from 'src/app/services/subscriber.service';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatLabel, MatError } from '@angular/material/form-field';
 
 @Component({
-    selector: 'app-edit-subscriber',
-    templateUrl: './edit-subscriber.component.html',
-    styleUrls: ['./edit-subscriber.component.scss'],
-    standalone: true,
-    imports: [
-        ReactiveFormsModule,
-        MatFormField,
-        MatLabel,
-        MatInput,
-        NgIf,
-        MatError,
-        MatButton,
-    ],
+  selector: 'app-edit-subscriber',
+  templateUrl: './edit-subscriber.component.html',
+  styleUrls: ['./edit-subscriber.component.scss'],
+  standalone: true,
+  imports: [
+    MatLabel,
+    MatInput,
+    MatError,
+    MatButton,
+    MatFormField,
+    ReactiveFormsModule,
+  ],
 })
 export class EditSubscriberComponent implements OnInit {
   form: FormGroup = new FormGroup({});

@@ -14,12 +14,11 @@
           placeholder="User Name"
           formControlName="userName"
         />
-        <mat-error *ngIf="form.get('userName')?.hasError('required')">
-          User name is required
-        </mat-error>
-        <mat-error *ngIf="form.get('userName')!.getError('minlength')">
-          User name must be at least 6 characters long
-        </mat-error>
+        @if (form.get('userName')?.hasError('required')) {
+        <mat-error> User name is required </mat-error>
+        } @if (form.get('userName')!.getError('minlength')) {
+        <mat-error> User name must be at least 6 characters long </mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field color="primary" appearance="outline">
@@ -30,12 +29,11 @@
           placeholder="Password"
           formControlName="password"
         />
-        <mat-error *ngIf="form.get('password')?.hasError('required')">
-          Password is required
-        </mat-error>
-        <mat-error *ngIf="form.get('password')!.getError('minlength')">
-          Password must be at least 6 characters long
-        </mat-error>
+        @if (form.get('password')?.hasError('required')) {
+        <mat-error> Password is required </mat-error>
+        } @if (form.get('password')!.getError('minlength')) {
+        <mat-error> Password must be at least 6 characters long </mat-error>
+        }
       </mat-form-field>
 
       <button

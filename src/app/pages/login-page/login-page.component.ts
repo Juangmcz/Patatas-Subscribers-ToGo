@@ -1,29 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  Validators,
+  FormBuilder,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginResponse } from 'src/app/models/login-response.model';
+import { Component } from '@angular/core';
 import { Login } from 'src/app/models/login.model';
-import { LoginService } from 'src/app/services/login.service';
 import { CookieService } from 'ngx-cookie-service';
-import { MatButton } from '@angular/material/button';
-import { NgIf } from '@angular/common';
 import { MatInput } from '@angular/material/input';
+import { MatButton } from '@angular/material/button';
+import { LoginService } from 'src/app/services/login.service';
+import { LoginResponse } from 'src/app/models/login-response.model';
 import { MatFormField, MatLabel, MatError } from '@angular/material/form-field';
 
 @Component({
-    selector: 'app-login-page',
-    templateUrl: './login-page.component.html',
-    styleUrls: ['./login-page.component.scss'],
-    standalone: true,
-    imports: [
-        ReactiveFormsModule,
-        MatFormField,
-        MatLabel,
-        MatInput,
-        NgIf,
-        MatError,
-        MatButton,
-    ],
+  selector: 'app-login-page',
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.scss'],
+  standalone: true,
+  imports: [
+    MatLabel,
+    MatInput,
+    MatError,
+    MatButton,
+    MatFormField,
+    ReactiveFormsModule,
+  ],
 })
 export class LoginPageComponent {
   form: FormGroup = new FormGroup({});

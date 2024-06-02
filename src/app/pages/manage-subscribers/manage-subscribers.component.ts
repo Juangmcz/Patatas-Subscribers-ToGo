@@ -1,15 +1,15 @@
+import { NgClass } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatOption } from '@angular/material/core';
+import { MatInput } from '@angular/material/input';
+import { MatSelect } from '@angular/material/select';
+import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
 import { SubscriberService } from 'src/app/services/subscriber.service';
-import { MatIcon } from '@angular/material/icon';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SubscriberCardComponent } from '../../components/subscriber-card/subscriber-card.component';
-import { NgClass, NgFor } from '@angular/common';
-import { MatOption } from '@angular/material/core';
-import { MatSelect } from '@angular/material/select';
-import { MatInput } from '@angular/material/input';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatButton, MatIconButton } from '@angular/material/button';
 
 interface Food {
   value: string;
@@ -17,24 +17,23 @@ interface Food {
 }
 
 @Component({
-    selector: 'app-manage-subscribers',
-    templateUrl: './manage-subscribers.component.html',
-    styleUrls: ['./manage-subscribers.component.scss'],
-    standalone: true,
-    imports: [
-        ReactiveFormsModule,
-        MatButton,
-        MatFormField,
-        MatLabel,
-        MatInput,
-        MatSelect,
-        MatOption,
-        NgClass,
-        NgFor,
-        SubscriberCardComponent,
-        MatIconButton,
-        MatIcon,
-    ],
+  selector: 'app-manage-subscribers',
+  templateUrl: './manage-subscribers.component.html',
+  styleUrls: ['./manage-subscribers.component.scss'],
+  standalone: true,
+  imports: [
+    NgClass,
+    MatIcon,
+    MatLabel,
+    MatInput,
+    MatButton,
+    MatSelect,
+    MatOption,
+    MatFormField,
+    MatIconButton,
+    ReactiveFormsModule,
+    SubscriberCardComponent,
+  ],
 })
 export class ManageSubscribersComponent implements OnInit {
   count: number = 10;

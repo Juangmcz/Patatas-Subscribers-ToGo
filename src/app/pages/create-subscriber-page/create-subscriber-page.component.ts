@@ -1,33 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CountryService } from 'src/app/services/country.service';
-import { SubscriberService } from 'src/app/services/subscriber.service';
+import {
+  FormGroup,
+  Validators,
+  FormBuilder,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import Swal from 'sweetalert2';
-import { MatButton } from '@angular/material/button';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { MatInput } from '@angular/material/input';
 import { MatOption } from '@angular/material/core';
 import { MatSelect } from '@angular/material/select';
-import { NgIf, NgFor } from '@angular/common';
-import { MatInput } from '@angular/material/input';
+import { MatButton } from '@angular/material/button';
+import { CountryService } from 'src/app/services/country.service';
+import { SubscriberService } from 'src/app/services/subscriber.service';
 import { MatFormField, MatLabel, MatError } from '@angular/material/form-field';
 
 @Component({
-    selector: 'app-create-subscriber-page',
-    templateUrl: './create-subscriber-page.component.html',
-    styleUrls: ['./create-subscriber-page.component.scss'],
-    standalone: true,
-    imports: [
-        ReactiveFormsModule,
-        MatFormField,
-        MatLabel,
-        MatInput,
-        NgIf,
-        MatError,
-        MatSelect,
-        NgFor,
-        MatOption,
-        MatButton,
-    ],
+  selector: 'app-create-subscriber-page',
+  templateUrl: './create-subscriber-page.component.html',
+  styleUrls: ['./create-subscriber-page.component.scss'],
+  standalone: true,
+  imports: [
+    MatLabel,
+    MatInput,
+    MatError,
+    MatSelect,
+    MatOption,
+    MatButton,
+    MatFormField,
+    ReactiveFormsModule,
+  ],
 })
 export class CreateSubscriberPageComponent implements OnInit {
   countries: string[] = [];

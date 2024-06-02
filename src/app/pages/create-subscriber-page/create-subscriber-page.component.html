@@ -14,12 +14,11 @@
           placeholder="Name"
           formControlName="Name"
         />
-        <mat-error *ngIf="form.get('Name')?.hasError('required')">
-          Name is required
-        </mat-error>
-        <mat-error *ngIf="form.get('Name')!.getError('minlength')">
-          Name must be at least 3 characters long
-        </mat-error>
+        @if (form.get('Name')?.hasError('required')) {
+        <mat-error> Name is required </mat-error>
+        } @if (form.get('Name')!.getError('minlength')) {
+        <mat-error> Name must be at least 3 characters long </mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field color="primary" appearance="outline">
@@ -30,12 +29,11 @@
           placeholder="Email"
           formControlName="Email"
         />
-        <mat-error *ngIf="form.get('Email')?.hasError('required')">
-          Email is required
-        </mat-error>
-        <mat-error *ngIf="form.get('Email')!.getError('email')">
-          Email must be a valid one
-        </mat-error>
+        @if (form.get('Email')?.hasError('required')) {
+        <mat-error> Email is required </mat-error>
+        } @if (form.get('Email')!.getError('email')) {
+        <mat-error> Email must be a valid one </mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field color="primary" appearance="outline">
@@ -45,13 +43,13 @@
           placeholder="Country code"
           formControlName="CountryCode"
         >
-          <mat-option *ngFor="let country of countries" [value]="country">{{
-            country
-          }}</mat-option>
+          @for (country of countries; track country) {
+          <mat-option [value]="country">{{ country }}</mat-option>
+          }
         </mat-select>
-        <mat-error *ngIf="form.get('CountryCode')?.hasError('required')">
-          Country code is required
-        </mat-error>
+        @if (form.get('CountryCode')?.hasError('required')) {
+        <mat-error> Country code is required </mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field color="primary" appearance="outline">
@@ -62,12 +60,11 @@
           placeholder="Phone number"
           formControlName="PhoneNumber"
         />
-        <mat-error *ngIf="form.get('PhoneNumber')?.hasError('required')">
-          Phone Number is required
-        </mat-error>
-        <mat-error *ngIf="form.get('PhoneNumber')!.getError('minlength')">
-          Email must be a at least 4 characters long
-        </mat-error>
+        @if (form.get('PhoneNumber')?.hasError('required')) {
+        <mat-error> Phone Number is required </mat-error>
+        } @if (form.get('PhoneNumber')!.getError('minlength')) {
+        <mat-error> Email must be a at least 4 characters long </mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field color="primary" appearance="outline">
