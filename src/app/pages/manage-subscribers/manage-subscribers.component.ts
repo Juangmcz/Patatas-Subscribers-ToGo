@@ -7,8 +7,8 @@ import { MatSelect } from '@angular/material/select';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
-import { SubscriberService } from 'src/app/services/subscriber.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { SubscriberService } from 'src/app/services/subscriber/subscriber.service';
 import { SubscriberCardComponent } from '../../components/subscriber-card/subscriber-card.component';
 
 interface Food {

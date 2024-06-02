@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 import { Observable, switchMap } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import jwt_decode, { JwtPayload } from 'jwt-decode';
-import { LoginService } from '../services/login.service';
+import { LoginService } from '../services/login/login.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {

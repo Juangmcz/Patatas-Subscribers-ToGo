@@ -10,7 +10,7 @@ import { Login } from 'src/app/models/login.model';
 import { CookieService } from 'ngx-cookie-service';
 import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
-import { LoginService } from 'src/app/services/login.service';
+import { LoginService } from 'src/app/services/login/login.service';
 import { LoginResponse } from 'src/app/models/login-response.model';
 import { MatFormField, MatLabel, MatError } from '@angular/material/form-field';
 

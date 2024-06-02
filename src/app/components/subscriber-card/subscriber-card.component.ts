@@ -3,24 +3,31 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
-import { SubscriberService } from 'src/app/services/subscriber.service';
+import { SubscriberService } from 'src/app/services/subscriber/subscriber.service';
 import { MatButton } from '@angular/material/button';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardContent, MatCardSubtitle, MatCardActions } from '@angular/material/card';
+import {
+  MatCard,
+  MatCardHeader,
+  MatCardTitle,
+  MatCardContent,
+  MatCardSubtitle,
+  MatCardActions,
+} from '@angular/material/card';
 
 @Component({
-    selector: 'app-subscriber-card',
-    templateUrl: './subscriber-card.component.html',
-    styleUrls: ['./subscriber-card.component.scss'],
-    standalone: true,
-    imports: [
-        MatCard,
-        MatCardHeader,
-        MatCardTitle,
-        MatCardContent,
-        MatCardSubtitle,
-        MatCardActions,
-        MatButton,
-    ],
+  selector: 'app-subscriber-card',
+  templateUrl: './subscriber-card.component.html',
+  styleUrls: ['./subscriber-card.component.scss'],
+  standalone: true,
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatCardSubtitle,
+    MatCardActions,
+    MatButton,
+  ],
 })
 export class SubscriberCardComponent {
   @Input() subscriberInfo: SubscriberInfo = {

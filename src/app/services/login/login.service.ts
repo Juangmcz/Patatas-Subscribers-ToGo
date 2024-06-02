@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { LoginResponse } from '../models/login-response.model';
-import { Login } from '../models/login.model';
+import { Injectable } from '@angular/core';
+import { Login } from '../../models/login.model';
+import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { LoginResponse } from '../../models/login-response.model';
 
 @Injectable({
   providedIn: 'root',

@@ -4,9 +4,9 @@ import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
-import { SubscriberService } from 'src/app/services/subscriber.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatLabel, MatError } from '@angular/material/form-field';
+import { SubscriberService } from 'src/app/services/subscriber/subscriber.service';
 
 @Component({
   selector: 'app-edit-subscriber',
