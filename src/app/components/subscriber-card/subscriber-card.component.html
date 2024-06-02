@@ -1,21 +1,21 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>{{ subscriberInfo.Name }}</mat-card-title>
-    <p>Id: {{ subscriberInfo.Id }}</p>
+    <mat-card-title>{{ subscriberInfo().Name }}</mat-card-title>
+    <p>Id: {{ subscriberInfo().Id }}</p>
   </mat-card-header>
   <mat-card-content>
-    <mat-card-subtitle>Email: {{ subscriberInfo.Email }}</mat-card-subtitle>
+    <mat-card-subtitle>Email: {{ subscriberInfo().Email }}</mat-card-subtitle>
     <mat-card-subtitle
-      >Country Code: {{ subscriberInfo.CountryCode }}</mat-card-subtitle
+      >Country Code: {{ subscriberInfo().CountryCode }}</mat-card-subtitle
     >
     <mat-card-subtitle
-      >Phone Number: {{ subscriberInfo.PhoneNumber }}</mat-card-subtitle
+      >Phone Number: {{ subscriberInfo().PhoneNumber }}</mat-card-subtitle
     >
-    <mat-card-subtitle>Area: {{ subscriberInfo.Area }}</mat-card-subtitle>
+    <mat-card-subtitle>Area: {{ subscriberInfo().Area }}</mat-card-subtitle>
     <mat-card-subtitle
-      >Job Title: {{ subscriberInfo.JobTitle }}</mat-card-subtitle
+      >Job Title: {{ subscriberInfo().JobTitle }}</mat-card-subtitle
     >
-    <mat-card-subtitle>Topics: {{ subscriberInfo.Topics }}</mat-card-subtitle>
+    <mat-card-subtitle>Topics: {{ subscriberInfo().Topics }}</mat-card-subtitle>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="editSubscriber()">

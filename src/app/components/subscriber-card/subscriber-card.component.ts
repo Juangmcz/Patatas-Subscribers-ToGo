@@ -9,7 +9,7 @@ import {
 } from '@angular/material/card';
 import { Router } from '@angular/router';
 import { MatButton } from '@angular/material/button';
-import { Component, Input, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
 import { SubscriberService } from 'src/app/services/subscriber/subscriber.service';
 
@@ -29,8 +29,8 @@ import { SubscriberService } from 'src/app/services/subscriber/subscriber.servic
   ],
 })
 export class SubscriberCardComponent {
-  // Inputs
-  @Input() subscriberInfo!: SubscriberInfo;
+  // Properties
+  public subscriberInfo = input.required<SubscriberInfo>();
 
   // Services
   private router = inject(Router);
@@ -40,7 +40,7 @@ export class SubscriberCardComponent {
   public editSubscriber(): void {
     this.router.navigate(['edit-subscriber'], {
       queryParams: {
-        data: JSON.stringify(this.subscriberInfo),
+        data: JSON.stringify(this.subscriberInfo()),
       },
     });
   }
@@ -57,7 +57,7 @@ export class SubscriberCardComponent {
     }).then((result) => {
       if (result.isConfirmed) {
         this.subscriberService
-          .deleteSubscriber(this.subscriberInfo.Id)
+          .deleteSubscriber(this.subscriberInfo().Id)
           .subscribe({
             error: console.log,
             complete: console.log,
