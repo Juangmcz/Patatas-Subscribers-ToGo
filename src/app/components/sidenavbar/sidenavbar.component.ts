@@ -1,44 +1,54 @@
-import { Component } from '@angular/core';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import {
+  MatSidenav,
+  MatSidenavContent,
+  MatSidenavContainer,
+} from '@angular/material/sidenav';
+import {
+  MatExpansionPanel,
+  MatExpansionPanelHeader,
+} from '@angular/material/expansion';
+import { MatIcon } from '@angular/material/icon';
+import { Component, inject } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { MatNavList } from '@angular/material/list';
-import { MatExpansionPanel, MatExpansionPanelHeader } from '@angular/material/expansion';
-import { MatSidenavContainer, MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
-import { MatIcon } from '@angular/material/icon';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MatIconButton, MatButton } from '@angular/material/button';
 import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
 
 @Component({
-    selector: 'app-sidenavbar',
-    templateUrl: './sidenavbar.component.html',
-    styleUrls: ['./sidenavbar.component.scss'],
-    standalone: true,
-    imports: [
-        MatToolbar,
-        MatToolbarRow,
-        MatIconButton,
-        MatIcon,
-        MatSidenavContainer,
-        MatSidenav,
-        MatExpansionPanel,
-        MatExpansionPanelHeader,
-        MatNavList,
-        RouterLink,
-        MatButton,
-        MatSidenavContent,
-        RouterOutlet,
-    ],
+  selector: 'app-sidenavbar',
+  templateUrl: './sidenavbar.component.html',
+  styleUrls: ['./sidenavbar.component.scss'],
+  standalone: true,
+  imports: [
+    MatIcon,
+    MatButton,
+    MatToolbar,
+    MatSidenav,
+    MatNavList,
+    RouterLink,
+    RouterOutlet,
+    MatToolbarRow,
+    MatIconButton,
+    MatExpansionPanel,
+    MatSidenavContent,
+    MatSidenavContainer,
+    MatExpansionPanelHeader,
+  ],
 })
 export class SidenavbarComponent {
-  constructor(private router: Router, private cookieService: CookieService) {}
+  // Services
+  private router = inject(Router);
+  private cookieService = inject(CookieService);
 
-  onLogout(): void {
+  // Methods
+  public onLogout(): void {
     this.router.navigate(['login']);
     this.cookieService.delete('Token');
     this.cookieService.delete('RefreshToken');
   }
 
-  isThereAToken(): boolean {
+  public isThereAToken(): boolean {
     const token: boolean = this.cookieService.check('Token');
     return token;
   }

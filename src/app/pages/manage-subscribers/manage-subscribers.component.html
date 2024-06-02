@@ -27,7 +27,7 @@
   </mat-form-field>
 </form>
 <div ngClass="subscriber-card-container">
-  @for (subscriber of subscribers; track subscriber.Id) {
+  @for (subscriber of subscribers(); track subscriber.Id) {
   <app-subscriber-card [subscriberInfo]="subscriber"></app-subscriber-card>
   }
 </div>
@@ -36,7 +36,7 @@
     <mat-icon>navigate_before</mat-icon>
   </button>
 
-  <h2>{{ currentPage }} of {{ totalOfPages }}</h2>
+  <h2>{{ currentPage() }} of {{ totalOfPages() }}</h2>
 
   <button mat-icon-button (click)="onNextPage()">
     <mat-icon>navigate_next</mat-icon>

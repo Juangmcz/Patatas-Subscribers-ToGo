@@ -1,20 +1,15 @@
 import { NgClass } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
-import { Component, OnInit } from '@angular/core';
 import { MatOption } from '@angular/material/core';
 import { MatInput } from '@angular/material/input';
 import { MatSelect } from '@angular/material/select';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SubscriberService } from 'src/app/services/subscriber/subscriber.service';
 import { SubscriberCardComponent } from '../../components/subscriber-card/subscriber-card.component';
-
-interface Food {
-  value: string;
-  viewValue: string;
-}
 
 @Component({
   selector: 'app-manage-subscribers',
@@ -36,22 +31,24 @@ interface Food {
   ],
 })
 export class ManageSubscribersComponent implements OnInit {
-  count: number = 10;
-  criteria: string = '';
-  sortType: string = '';
-  sortOrder: string = '';
-  currentPage: number = 1;
-  totalOfSubscribers: number = 0;
-  totalOfPages: number = 0;
-  subscribers: SubscriberInfo[] = [];
+  // Properties
+  private count: number = 10;
+  public sortType: string = '';
+  private criteria: string = '';
+  public sortOrder: string = '';
+  public currentPage = signal(1);
+  public totalOfSubscribers = signal(0);
+  public form: FormGroup = new FormGroup({});
+  public totalOfPages = computed(() =>
+    Math.ceil(this.totalOfSubscribers() / 10)
+  );
+  public subscribers = signal<SubscriberInfo[]>([]);
 
-  form: FormGroup = new FormGroup({});
+  // Services
+  private builder = inject(FormBuilder);
+  private subscriberService = inject(SubscriberService);
 
-  constructor(
-    private service: SubscriberService,
-    private builder: FormBuilder
-  ) {}
-
+  // Methods
   ngOnInit(): void {
     this.getAllSubscribers();
     this.form = this.builder.group({
@@ -59,48 +56,42 @@ export class ManageSubscribersComponent implements OnInit {
     });
   }
 
-  onNextPage() {
-    if (this.totalOfSubscribers > 10 && this.currentPage < this.totalOfPages) {
-      this.currentPage += 1;
+  public onNextPage(): void {
+    if (
+      this.totalOfSubscribers() > 10 &&
+      this.currentPage() < this.totalOfPages()
+    ) {
+      this.currentPage.update((p) => p + 1);
       this.getAllSubscribers();
     }
   }
 
-  onPreviousPage() {
-    if (this.currentPage > 1) {
-      this.currentPage -= 1;
+  public onPreviousPage(): void {
+    if (this.currentPage() > 1) {
+      this.currentPage.update((p) => p - 1);
       this.getAllSubscribers();
     }
   }
 
-  pageGreaterThanOne(): boolean {
-    if (this.currentPage > 1) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  onApply() {
-    this.currentPage = 1;
+  public onApply(): void {
+    this.currentPage.set(1);
     this.criteria = this.form.value.search;
     this.getAllSubscribers();
   }
 
-  getAllSubscribers() {
-    this.service
+  private getAllSubscribers(): void {
+    this.subscriberService
       .getAllSubscribers(
         this.count,
-        this.currentPage,
+        this.currentPage(),
         this.criteria,
         this.sortType,
         this.sortOrder
       )
       .subscribe({
         next: (subscriber) => {
-          (this.subscribers = subscriber.Data),
-            (this.totalOfSubscribers = subscriber.Count);
-          this.totalOfPages = Math.ceil(this.totalOfSubscribers / 10);
+          this.subscribers.set(subscriber.Data),
+            this.totalOfSubscribers.set(subscriber.Count);
         },
         error: console.log,
         complete: console.log,

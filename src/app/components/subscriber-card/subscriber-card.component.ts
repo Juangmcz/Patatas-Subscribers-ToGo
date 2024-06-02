@@ -1,18 +1,17 @@
-import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
-import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
-import { SubscriberService } from 'src/app/services/subscriber/subscriber.service';
-import { MatButton } from '@angular/material/button';
 import {
   MatCard,
-  MatCardHeader,
   MatCardTitle,
+  MatCardHeader,
   MatCardContent,
-  MatCardSubtitle,
   MatCardActions,
+  MatCardSubtitle,
 } from '@angular/material/card';
+import { Router } from '@angular/router';
+import { MatButton } from '@angular/material/button';
+import { Component, Input, inject } from '@angular/core';
+import { SubscriberInfo } from 'src/app/models/subscriber-info.model';
+import { SubscriberService } from 'src/app/services/subscriber/subscriber.service';
 
 @Component({
   selector: 'app-subscriber-card',
@@ -21,48 +20,24 @@ import {
   standalone: true,
   imports: [
     MatCard,
-    MatCardHeader,
-    MatCardTitle,
-    MatCardContent,
-    MatCardSubtitle,
-    MatCardActions,
     MatButton,
+    MatCardTitle,
+    MatCardHeader,
+    MatCardContent,
+    MatCardActions,
+    MatCardSubtitle,
   ],
 })
 export class SubscriberCardComponent {
-  @Input() subscriberInfo: SubscriberInfo = {
-    SystemId: null,
-    Area: '',
-    PublicId: 0,
-    CountryCode: '',
-    CountryName: '',
-    Name: ' ',
-    EndpointsCount: 0,
-    Email: '',
-    JobTitle: '',
-    PhoneNumber: '',
-    PhoneCode: '',
-    PhoneCodeAndNumber: '',
-    LastActivityUtc: null,
-    LastActivity: null,
-    LastActivityString: null,
-    SubscriptionDate: null,
-    SubscriptionMethod: 0,
-    SubscriptionState: 0,
-    SubscriptionStateDescription: '',
-    Topics: [],
-    ValidEmail: true,
-    Activity: '',
-    ConnectionState: 0,
-    Id: 0,
-  };
+  // Inputs
+  @Input() subscriberInfo!: SubscriberInfo;
 
-  constructor(
-    private router: Router,
-    private subscriberService: SubscriberService
-  ) {}
+  // Services
+  private router = inject(Router);
+  private subscriberService = inject(SubscriberService);
 
-  editSubscriber() {
+  // Methods
+  public editSubscriber(): void {
     this.router.navigate(['edit-subscriber'], {
       queryParams: {
         data: JSON.stringify(this.subscriberInfo),
@@ -70,7 +45,7 @@ export class SubscriberCardComponent {
     });
   }
 
-  deleteSubscriber() {
+  public deleteSubscriber(): void {
     Swal.fire({
       title: 'Are you sure you want to remove this subscriber?',
       text: "You won't be able to revert this!",
